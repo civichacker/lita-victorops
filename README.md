@@ -1,7 +1,7 @@
-# VictorOps Handler for Lita
+# VictorOps Adapter for Lita
 
 ## Description
-This Lita handler allows your bot to join your VictorOps timeline.  You can then address Lita with timeline chat messages in the usual way:
+This Lita adapter allows your bot to join your VictorOps timeline.  You can then address Lita with timeline chat messages in the usual way:
 
 ```
 @lita karma worst
