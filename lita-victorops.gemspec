@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Add a description"
   spec.summary       = "Add a summary"
   spec.homepage      = "https://civichacker.com"
-  spec.license       = "Mozilla Public License 2.0"
+  spec.license       = "MPL-2.0"
   spec.metadata      = { "lita_plugin_type" => "adapter" }
 
   spec.files         = `git ls-files`.split($/)
