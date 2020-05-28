@@ -15,4 +15,27 @@
 require "spec_helper"
 
 describe Lita::Adapters::Victorops, lita: true do
+
+  def with_websocket(subject, queue)
+    thread = Thread.new { subject.run() }
+    thread.abort_on_exception = true
+    yield queue.pop
+    subject.shut_down
+    thread.join
+  end
+
+  let(:robot) { Lita::Robot.new(registry) }
+  subject { described_class.new(robot) }
+  let(:token) { '1234567890abcdef1234567890abcdef12345678' }
+  let(:queue) { Queue.new }
+
+  before do
+    registry.register_adapter(:victorops, described_class)
+    registry.config.adapters.victorops.token = token
+  end
+
+  it 'registers with Lita' do
+    expect(Lita.adapters[:victorops]).to eql(described_class)
+  end
+
 end
