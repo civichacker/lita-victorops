@@ -1,12 +1,25 @@
+# Copyright 2020 Civic Hacker LLC <opensource@civichacker.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 Gem::Specification.new do |spec|
   spec.name          = "lita-victorops"
   spec.version       = "1.0.0"
   spec.authors       = ["Jurnell Cockhren"]
   spec.email         = ["jurnell@civichacker.com"]
-  spec.description   = "Add a description"
-  spec.summary       = "Add a summary"
+  spec.summary       = "VictorOps handler for Lita Bot"
   spec.homepage      = "https://civichacker.com"
-  spec.license       = "MPL-2.0"
+  spec.license       = "Apache-2.0"
   spec.metadata      = { "lita_plugin_type" => "adapter" }
 
   spec.files         = `git ls-files`.split($/)
