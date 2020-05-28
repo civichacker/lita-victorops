@@ -13,8 +13,6 @@
 # limitations under the License.
 
 require 'eventmachine'
-require "websocket"
-require 'net/http'
 require 'websocket-eventmachine-client'
 require 'securerandom'
 require 'json'
@@ -34,14 +32,9 @@ module Lita
         EventMachine.run do
           @ws = WebSocket::EventMachine::Client.connect(:uri => 'wss://chat.victorops.com/chat')
           @ws.onopen do
-            log.info("opened #{config.token}")
-            # m = login
-            # log.info("sending: #{m.to_json}")
             @ws.send login.to_json
-            # @ws.send send_messages('', "connected!")
           end
           @ws.onmessage do |msg, type|
-            # log.info("Received message: #{msg}")
             header, payload = msg.split(/\n/)
             m = JSON.parse(payload)
 						log.info(payload)
@@ -64,12 +57,9 @@ module Lita
                   robot.receive(message)
                 end
               else
-              #  chat = m['PAYLOAD']['CHAT']
                 log.info(m)
               end
             end
-            # @ws.send message
-            # shut_down
           end
         end
         robot.trigger(:connected)
@@ -77,7 +67,6 @@ module Lita
 
       def shut_down
         @ws.close
-        log.info("closed")
         EM.stop if EM.reactor_running?
       end
 
