@@ -38,4 +38,10 @@ describe Lita::Adapters::Victorops, lita: true do
     expect(Lita.adapters[:victorops]).to eql(described_class)
   end
 
+  describe "#build_message" do
+    it "builds message object with proper message header" do
+      expect(subject.build_message("testing")).to start_with('VO-MESSAGE')
+    end
+  end
+
 end
